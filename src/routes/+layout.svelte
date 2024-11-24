@@ -10,8 +10,9 @@
 		<nav>
 			<a href="/">Home</a>
 			<a href="/about">About</a>
+			<a href="https://simplecss.org/demo" target=”_blank”>SimpleCSS</a>
 		  </nav>
-		  <p>Hello!!</p>
+		  <p>Anthony's test site.</p>
 	  </header>
 	
 	  	<main>
@@ -20,7 +21,7 @@
 		</main>
 	
 	  <footer>
-		<p>Jane Smith's website.</p>
+		<p>Anthony's test site. SvelteKit / ts</p>
 	  </footer>
 	</div>
 </div>
