@@ -45,6 +45,7 @@ $effect(() => {
 			{/each}
 		  </ul>
 	</div>
+	<p>https://vercel.com/anthony-headleys-projects/ailanthus/stores/integration/store_P2rwINOj7ZEjiSo0/guides</p>
 </article>
 
 <style>
