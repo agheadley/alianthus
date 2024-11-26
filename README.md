@@ -23,16 +23,26 @@ npm run dev
 
 # or start the server and open the app in a new browser tab
 npm run dev -- --open
+
+
+http://localhost:5173/
 ```
 
-## Building
+Connecting to vercel
 
-To create a production version of your app:
+npm i -g @vercel@latest
 
-```bash
-npm run build
+vercel link
+
+vercel env pull .env.development.local
+
+```
+supabaseClient.ts
+import { createClient } from '@supabase/supabase-js'
+import { SUPABASE_ANON_KEY, SUPABASE_URL } from '$env/static/private'
+
+export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 ```
 
-You can preview the production build with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+

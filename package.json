@@ -32,6 +32,7 @@
 	"dependencies": {
 		"@supabase/supabase-js": "^2.46.1",
 		"@sveltejs/adapter-vercel": "^5.4.8",
-		"simpledotcss": "^2.3.2"
+		"simpledotcss": "^2.3.2",
+		"vercel": "^32.3.0"
 	}
 }
