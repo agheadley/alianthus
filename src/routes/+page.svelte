@@ -7,6 +7,34 @@
 
 	let canvas:any;
 
+	let imageUrl=$state('');
+
+	let test=async()=>{
+		let response = await fetch('/edge/storage', {
+		    method: 'POST',
+		    body: JSON.stringify({name:'download.svg',type:'public'}),
+		    headers: {'content-type': 'application/json'}
+	    });
+		let res= await response.json();
+        console.log(res);
+		imageUrl=res.url ? res.url : '';
+
+	};
+
+	let testPrivate=async()=>{
+		let response = await fetch('/edge/storage', {
+		    method: 'POST',
+		    body: JSON.stringify({name:'user.svg',type:'private'}),
+		    headers: {'content-type': 'application/json'}
+	    });
+		let res= await response.json();
+        console.log(res);
+		imageUrl=res.url ? res.url : '';
+
+	};
+
+
+
 $effect(() => {
 
 	console.log('onMount .... $effect');
@@ -36,6 +64,21 @@ $effect(() => {
 <button onclick={()=>color.o+=0.05}>Color</button>
 </p>
 
+<p>
+	<button onclick={test}>Test public images url</button>
+	
+	<img src={imageUrl} alt='images'/>
+</p>
+
+<p>
+	<button onclick={testPrivate}>Test private images url</button>
+	
+	<img src={imageUrl} alt='images'/>
+
+</p>
+
+
+<p><img alt='img' src="https://iwwsyzhjxrgrpztmpixv.supabase.co/storage/v1/object/sign/private/user.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcml2YXRlL3VzZXIuc3ZnIiwiaWF0IjoxNzMyNzI3MzQxLCJleHAiOjE3MzMzMzIxNDF9.m3EaDO77nBJu3HC0zO-6WMpAjXckMU4LXkH-7zfsIV4&t=2024-11-27T17%3A08%3A49.636Z"/></p>
 
 <article>
 	<h2>Supabase Select</h2>
