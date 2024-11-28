@@ -93,7 +93,7 @@ $effect(() => {
         {/if}
 	</div>
 	<p><a href="https://vercel.com/anthony-headleys-projects/ailanthus/stores/integration/store_P2rwINOj7ZEjiSo0/guides" target=”_blank”>Getting Started</a></p>
-
+    <p><a href="https://supabase.com/dashboard/project/iwwsyzhjxrgrpztmpixv/auth/policies?search=32670&schema=public" target="_blank">Needs a public policy to read, only returns 1000 rows!</a></p>
 </article>
 
 
