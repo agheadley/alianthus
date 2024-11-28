@@ -36,7 +36,7 @@ let getPrivateImageUrl=async()=>{
 let read=async()=>{
 		let response = await fetch('/api/read', {
 		    method: 'POST',
-		    body: JSON.stringify({}),
+		    body: JSON.stringify({table:"counties"}),
 		    headers: {'content-type': 'application/json'}
 	    });
 		readData= await response.json();

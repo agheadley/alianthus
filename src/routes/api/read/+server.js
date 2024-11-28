@@ -7,10 +7,10 @@ import { json } from '@sveltejs/kit';
 
 
 export async function POST({request}) {
-    const reqData = await request.json();
+    const req = await request.json();
     
 
-    const { data } = await supabase.from("countries").select();
+    const { data } = await supabase.from(req.table).select();
     return json({countries: data ?? []});
    
    
