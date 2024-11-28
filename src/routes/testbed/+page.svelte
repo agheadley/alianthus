@@ -10,7 +10,7 @@ let color = $state({r:34,g:127,b:34,o:0.1});
 let canvas:any;
 
 let getPublicImageUrl=async()=>{
-    let response = await fetch('/edge/storage/public', {
+    let response = await fetch('/api/storage/public', {
 		    method: 'POST',
 		    body: JSON.stringify({fileName:'download.svg'}),
 		    headers: {'content-type': 'application/json'}
@@ -22,7 +22,7 @@ let getPublicImageUrl=async()=>{
 
 
 let getPrivateImageUrl=async()=>{
-    let response = await fetch('/edge/storage/private', {
+    let response = await fetch('/api/storage/private', {
 		    method: 'POST',
 		    body: JSON.stringify({fileName:'user.svg'}),
 		    headers: {'content-type': 'application/json'}
@@ -34,7 +34,7 @@ let getPrivateImageUrl=async()=>{
 
 
 let read=async()=>{
-		let response = await fetch('/edge/read', {
+		let response = await fetch('/api/read', {
 		    method: 'POST',
 		    body: JSON.stringify({}),
 		    headers: {'content-type': 'application/json'}
