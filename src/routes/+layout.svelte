@@ -5,14 +5,17 @@
 </script>
 
 	<div class="app">
+	<!-- simple css adjusted so .container used instead of body - body margin:0 added too to appp.css-->
 	<div class="container">
 	<header>
 		<nav>
 			<a href="/">Home</a>
+			<a href="/testbed">Testbed</a>
+			
 			<a href="/about">About</a>
-			<a href="https://simplecss.org/demo" target=”_blank”>SimpleCSS</a>
+			<a href="https://simplecss.org/demo" target=”_blank”>SimpleCSS Guide</a>
 		  </nav>
-		  <p>Anthony's test site.</p>
+		  <p>Svelte5 - Typescript -  Supabase - SimpleCSS - Anthony</p>
 	  </header>
 	
 	  	<main>
@@ -21,7 +24,7 @@
 		</main>
 	
 	  <footer>
-		<p>Anthony's test site. SvelteKit / ts</p>
+		<p>Anthony Headley</p>
 	  </footer>
 	</div>
 </div>
