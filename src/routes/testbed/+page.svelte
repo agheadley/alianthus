@@ -82,10 +82,10 @@ $effect(() => {
     <h4>Getting Started - Select *</h4>
     <div>
 		<p><button onclick={read}>Read Data</button></p>
-        {#if readData.countries}
+        {#if readData}
 		<ul>
-			{#each readData.countries as country}
-			  <li>{country.name}</li>
+			{#each readData as row}
+			  <li>{row.group_table.g} {row.person_table.nc} {row.person_table.sn} {row.person_table.pn}</li>
 			{/each}
 		  </ul>
         {:else} 

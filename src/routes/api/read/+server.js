@@ -12,25 +12,24 @@ export async function POST({request}) {
 
     //const { data } = await supabase.from(req.table).select();
     const { data, error } = await supabase
-        .from('states')
+        .from('pupil_table')
         .select(`
-            id,
-            name,
-            counties (
-            state_id,
+            group_id,
+            person_id,
+            group_table (
                 id,
-                name
+                g
             ),
-            country_id,
-            countries (
+            person_table (
                 id,
-                name
+                sn,
+                pn,
+                nc
             )
 
         
         `)
-        .eq('country_id',2)
-
+       
     return json(data ?? []);
    
    
