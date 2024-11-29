@@ -36,13 +36,38 @@ vercel link
 
 vercel env pull .env.development.local
 
-```
-supabaseClient.ts
-import { createClient } from '@supabase/supabase-js'
-import { SUPABASE_ANON_KEY, SUPABASE_URL } from '$env/static/private'
 
-export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-```
+## Supabase
 
+-- Create the table
+create table person_table (
+  id bigint primary key generated always as identity,
+  pn text not null,
+  sn text not null,
+  fn text not null,
+  sal text not null,
+  gnd text not null,
+  hse text not null,
+  tg text not null,
+  nc int not null,
+  type text not null,
+  pid text,
+  tid text,
+  mid text not null
+);
 
+-- Create the table
+create table group_table (
+  id bigint primary key generated always as identity,
+  sc text not null,
+  ss text not null,
+  sl text not null,
+  g text not null,
+  nc int not null,
+  dl text not null
+);
 
+new
+6741fa52d703adf80dd106f4
+old
+6741f7e9c6e2cccd58bb8efe
