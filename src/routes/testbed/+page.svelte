@@ -9,6 +9,9 @@ let size = $state(2);
 let color = $state({r:34,g:127,b:34,o:0.1});
 let canvas:any;
 
+
+
+
 let getPublicImageUrl=async()=>{
     let response = await fetch('/api/storage/public', {
 		    method: 'POST',
@@ -60,6 +63,8 @@ $effect(() => {
 	<title>Testbed</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
+
+
 
 <article>
     <h4>Supabase Storage Buckets</h4>
