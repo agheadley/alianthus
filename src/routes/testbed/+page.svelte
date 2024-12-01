@@ -1,7 +1,7 @@
 <script lang="ts">
 
 import * as cfg from '$lib/test-cfg';
-import * as file from '$lib/file';
+import * as file from '$lib/file.js';
 import * as util from '$lib/util';
 
 
