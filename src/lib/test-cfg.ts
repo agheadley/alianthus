@@ -146,8 +146,8 @@ export const subjects = [
 	return b;
 };
 
-export const getGroups=(index:number,gps:{ss:string,sc:'L'|'G'|'A'|'I'|'B',g:string,lv:string,yr:number}[])
-     : {lv:string,yr:number,ss:string,sc:string,g:string,pre:{A:number,B:number}}[]=>{
+export const getGroups=(index:number,gps:{ss:string,sc:'L'|'G'|'A'|'I'|'B',g:string,lv:string,yr:number,nc:number}[])
+     : {nc:number,lv:string,yr:number,ss:string,sc:string,g:string,pre:{A:number,B:number}}[]=>{
     let out = [];
     for(const item of gps) {
         const ii=random(-3,3);
@@ -160,7 +160,7 @@ export const getGroups=(index:number,gps:{ss:string,sc:'L'|'G'|'A'|'I'|'B',g:str
         
         
 
-        out.push({lv:item.lv,yr:Number(item.yr),sc:item.sc,ss:item.ss,g:item.g,pre:{A:x,B:y}})
+        out.push({nc:item.nc,lv:item.lv,yr:Number(item.yr),sc:item.sc,ss:item.ss,g:item.g,pre:{A:x,B:y}})
     }
 
     out=out.sort((a,b)=>a.yr-b.yr || a.ss.localeCompare(b.ss));

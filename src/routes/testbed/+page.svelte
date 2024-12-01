@@ -18,11 +18,11 @@ let canvas:any;
 //let { data } = $props();
 
 
-let files:any;
+let files:any=$state();
 
 
 let pupil : {log:string,pid:number,mid:string,sn:string,pn:string,gnd:string,hse:string,tg:string,nc:number
-			overall:{A:number,B:number},base:{type:string,A:number,B:number}[],groups:{lv:string,yr:number,sc:string,ss:string,g:string,pre:{A:number,B:number}}[]	}[]
+			overall:{A:number,B:number},base:{type:string,A:number,B:number}[],groups:{nc:number,lv:string,yr:number,sc:string,ss:string,g:string,pre:{A:number,B:number}}[]	}[]
 	= [];
 
 let group:  {	yr:number;lv:string,nc:number,sc:string,ss:string,sl:string,g:string,log:string,
@@ -123,8 +123,10 @@ let getPupil=async(results:any)=>{
 			let overall = f ? {A:f.A,B:f.B} : {A:0,B:0};
 
 
-			let gs : {lv:string,yr:number,ss:string,sc:string,g:string,pre:{A:number,B:number}}[]=[];
-			let g = results.filter((el: { pid: any; })=>el.pid===row.pid).map((el: { lv: any; yr: any; ss: any; sc: any; g: any; })=>({lv:el.lv,yr:Number(el.yr),ss:el.ss,sc:el.sc,g:el.g}));
+			let gs : {nc:number,lv:string,yr:number,ss:string,sc:string,g:string,pre:{A:number,B:number}}[]=[];
+			let g = results.filter((el: { pid: any; })=>el.pid===row.pid).map((el: {
+				g_nc: any; nc:any;lv: any; yr: any; ss: any; sc: any; g: any; 
+                })=>({nc:Number(el.g_nc),lv:el.lv,yr:Number(el.yr),ss:el.ss,sc:el.sc,g:el.g}));
 			if(g) {
 				gs=cfg.getGroups(i,g);	
 			}
