@@ -208,8 +208,8 @@ yr,lv,sc,ss,sl,g,g_nc,pn,sn,fn,sal,gnd,hse,tg,pupil_nc,type,pid,tid,mid
 2025,M,G,P,Physics,11/P/2,11,Geoffrey,Huff,Geoffrey,Geoffrey Huff,M,C,IC,11,pupil,12414,,37254345
 2025,M,G,P,Physics,11/P/2,11,Peter,Romero,Peter,Peter Romero,M,H,IC,11,pupil,12415,,37257345
 2025,M,G,P,Physics,11/P/2,11,Tom,Larson,Tom,Tom Larson,M,W,IC,11,pupil,12416,,37260345
-2025,M,G,B,Biology,11/B/1,11,Roy,Warner,Roy,Dr Warner,M,,,60,support,,RW,RWa1243785736
-2025,M,G,B,Biology,11/B/2,11,Aaron,Cole,Aaron,Mr Cole,M,,,68,support,,AC,ACo1243785767
+2025,M,G,B,Biology,11/B/1,11,Roy,Warner,Roy,Dr Warner,M,,,60,teacher,,RW,RWa1243785736
+2025,M,G,B,Biology,11/B/2,11,Aaron,Cole,Aaron,Mr Cole,M,,,68,teacher,,AC,ACo1243785767
 2025,M,G,C,Chemistry,11/C/1,11,Hettie,Keller,Hettie,Dr Keller,F,,,57,teacher,,HK,HKe1243785705
 2025,M,G,M,Mathematics,11/M/1,11,Hettie,Keller,Hettie,Dr Keller,F,,,57,teacher,,HK,HKe1243785705
 2025,M,G,P,Physics,11/P/2,11,Tillie,McDonald,Tillie,Miss McDonald,F,,,42,teacher,,TM,TMc1243785488
@@ -257,10 +257,13 @@ yr,lv,sc,ss,sl,g,g_nc,pn,sn,fn,sal,gnd,hse,tg,pupil_nc,type,pid,tid,mid
 2025,U,A,F,French,13/F/E,13,Alexander,Norman,Alexander,Alexander Norman,M,SH,AC,13,pupil,12431,,37305345
 2025,U,A,L,Latin,13/L/E,13,Marco,Larson,Marco,Marco Larson,M,SH,AC,13,pupil,12432,,37308345
 2025,U,A,L,Latin,13/L/E,13,Franklin,Vaughn,Franklin,Franklin Vaughn,M,SH,AC,13,pupil,12433,,37311345
-2025,U,A,B,Biology,13/B/B,13,Roy,Warner,Roy,Dr Warner,M,,,60,support,,RW,RWa1243785736
+2025,U,A,B,Biology,13/B/B,13,Roy,Warner,Roy,Dr Warner,M,,,60,teacher,,RW,RWa1243785736
 2025,U,A,Eli,English Literature,13/Eli/E,13,Owen,Edwards,Owen,Mr Edwards,M,,,35,teacher,,OE,OEd1243785457
 2025,U,A,Eli,English Literature,13/Eli/E,13,Daniel,Baldwin,Daniel,Dr Baldwin,M,,,44,teacher,,DB,DBa1243785519
 2025,U,A,F,French,13/F/E,13,Irene,Clarke,Irene,Mrs Clarke,M,,,57,teacher,,IC,ICl1243785674
 2025,U,A,L,Latin,13/L/E,13,Daniel,Baldwin,Daniel,Dr Baldwin,M,,,44,teacher,,DB,DBa1243785519
 2025,U,I,Spis,Sapnish ab initio (SL),13/Spis/A,13,Irene,Clarke,Irene,Mrs Clarke,M,,,57,teacher,,IC,ICl1243785674
 2025,U,B,SpS,Sports Science,13/SpS/B,13,Aaron,Cole,Aaron,Mr Cole,M,,,68,teacher,,AC,ACo1243785767
+2025,U,A,B,Biology,13/B/B,13,Hettie,Keller,Hettie,Dr Keller,F,,,57,teacher,,HK,HKe1243785705
+2025,U,A,B,Biology,13/B/B,13,Tillie,McDonald,Tillie,Miss McDonald,F,,,42,teacher,,TM,TMc1243785488
+2026,U,I,Ch,Chemistry (HL),12/Ch/D,12,Hettie,Keller,Hettie,Dr Keller,F,,,57,teacher,,HK,HKe1243785705

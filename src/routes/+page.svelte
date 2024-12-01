@@ -1,12 +1,17 @@
 <script lang="ts">
 import * as file from '$lib/file';
 import * as util from '$lib/util';
+import * as cfg from '$lib/test-cfg';
+
 //let { data } = $props();
 
 
 let files:any;
 
 
+let pupil : {log:string,pid:number,mid:string,sn:string,pn:string,gnd:string,hse:string,tg:string,nc:number
+			overall:{A:number,B:number},base:{type:string,A:number,B:number}[],groups:{lv:string,yr:number,sc:string,ss:string,g:string,pre:{A:number,B:number}}[]	}[]
+	= [];
 
 let group:  {	yr:number;lv:string,nc:number,sc:string,ss:string,sl:string,g:string,log:string,
 				pupil:{pid:number,nc:number,sn:string,pn:string,gnd:string,hse:string}[],teacher:{tid:string,sal:string}[]}[] 
@@ -33,7 +38,7 @@ let getGroup=(results:any)=>{
 
 	//console.log(typeof results);
 	for(let row of results) {
-		if(!group.find((el: { sc: any; ss: any; g: any; nc:any;})=>el.sc===row.sc && el.ss===row.ss && el.nc===Number(row.g_nc))) {
+		if(!group.find((el: { sc: any; ss: any; g: any; nc:any;})=>el.sc===row.sc && el.ss===row.ss && el.nc===Number(row.g_nc) && el.g===row.g)) {
 			group.push({
 				yr:Number(row.yr),
 				lv:row.lv,
@@ -44,7 +49,7 @@ let getGroup=(results:any)=>{
 				g:row.g,
 				pupil:[],
 				teacher:[],
-				log:util.getDateTime()
+				log:util.getDate()
 			});
 		}
 	}
@@ -76,7 +81,72 @@ let getGroup=(results:any)=>{
 
 	console.log(group);
 
+
+
 	
+};
+
+let getBase=(index:number)=>{
+	let base=[];
+	for(let row of cfg.baseName) {
+		let res=cfg.base[index];
+		res.A=res.A+cfg.random(-5,5);
+		res.B=res.B+cfg.random(-5,5);
+		base.push({type:row,A:res.A,B:res.B});
+	}
+	return base;
+};
+
+let getPupil=async(results:any)=>{
+	pupil=[];
+	for (let row of results) {
+		if(!pupil.find(el=>el.pid===Number(row.pid))) {
+
+			let i=cfg.random(0,2);
+			let base = getBase(i);
+			let f=base.find(el=>el.type==='overall');
+			let overall = f ? {A:f.A,B:f.B} : {A:0,B:0};
+
+			let gs=[];
+			f = results.filter((el: { pid: any; })=>el.pid===row.pid);
+			for(let item of f) {
+				let ii=cfg.random(-3,3);
+				let x=0;
+				let y=0;
+				console.log(cfg.pre[i]);
+				if(cfg.pre[i][item.sc]) {
+					x=cfg.pre[i][item.sc].A;
+					y=cfg.pre[i][item.sc].B;
+				}
+				
+
+				gs.push({lv:item.lv,yr:Number(item.yr),sc:item.sc,ss:item.ss,g:item.g,pre:{A:x,B:y}})
+			}
+
+			gs=gs.sort((a,b)=>a.yr-b.yr || a.ss.localeCompare(b.ss));
+
+
+
+			pupil.push ({
+				log:util.getDate(),
+				pid:Number(row.pid),
+				mid:row.mid,
+				nc:Number(row.pupil_nc),
+				sn:row.sn,
+				pn:row.pn,
+				gnd:row.gnd,
+				hse:row.hse,
+				tg:row.tg,
+				overall:overall,
+				base:base,
+				groups:gs
+			});
+		}
+	}
+
+	console.log(pupil);
+
+
 };
 
 let upload=async()=>{
@@ -87,8 +157,9 @@ let upload=async()=>{
 		console.log(results);
 
 		getGroup(results);
+		getPupil(results);
 
-		await insertGroup();
+		//await insertGroup();
 	});
 
 };
