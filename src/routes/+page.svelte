@@ -1,5 +1,4 @@
 <script lang="ts">
-import * as file from '$lib/file.js';
 import * as util from '$lib/util';
 
 

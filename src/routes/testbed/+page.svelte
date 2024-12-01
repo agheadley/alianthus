@@ -1,9 +1,8 @@
 <script lang="ts">
 
 import * as cfg from '$lib/test-cfg';
-import * as file from '$lib/file.js';
 import * as util from '$lib/util';
-
+import * as file from '$lib/file';
 
 let imageUrls=$state({public:'',private:''});
 
@@ -156,20 +155,17 @@ let getPupil=async(results:any)=>{
 };
 
 let upload=async()=>{
-	file.read(files[0],async(res:any)=>{
-		console.log(res);
+    
+    let res:any= await file.readFile(files[0]);
+    let results:object[]=file.csvProcess(res);
+    console.log(results);
 
-		console.log(cfg.base);
+    getGroup(results);
+    getPupil(results);
 
-		let results:any=file.csvProcess(res);
-		console.log(results);
+    await insertGroup();
+    await insertPupil();
 
-		getGroup(results);
-		getPupil(results);
-
-		await insertGroup();
-		await insertPupil();
-	});
 
 };
 
