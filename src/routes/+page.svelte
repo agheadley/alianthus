@@ -31,6 +31,18 @@ let insertGroup=async()=>{
 	console.log('INSERT',res);
 };
 
+
+let insertPupil=async()=>{
+	console.log('INSERTING : ',group);
+	let response = await fetch('/api/insert', {
+		method: 'POST',
+		body: JSON.stringify({table:"pupil_table",data:pupil}),
+		headers: {'content-type': 'application/json'}
+	});
+	let res= await response.json();
+	console.log('INSERT',res);
+};
+
 let getGroup=(results:any)=>{
 
 
@@ -86,45 +98,25 @@ let getGroup=(results:any)=>{
 	
 };
 
-let getBase=(index:number)=>{
-	let base=[];
-	for(let row of cfg.baseName) {
-		let res=cfg.base[index];
-		res.A=res.A+cfg.random(-5,5);
-		res.B=res.B+cfg.random(-5,5);
-		base.push({type:row,A:res.A,B:res.B});
-	}
-	return base;
-};
+
 
 let getPupil=async(results:any)=>{
 	pupil=[];
-	for (let row of results) {
+	for (let row of results.filter((el: { type: string; })=>el.type==='pupil')) {
 		if(!pupil.find(el=>el.pid===Number(row.pid))) {
 
 			let i=cfg.random(0,2);
-			let base = getBase(i);
+			let base = cfg.getBase(i);
 			let f=base.find(el=>el.type==='overall');
 			let overall = f ? {A:f.A,B:f.B} : {A:0,B:0};
 
-			let gs=[];
-			f = results.filter((el: { pid: any; })=>el.pid===row.pid);
-			for(let item of f) {
-				let ii=cfg.random(-3,3);
-				let x=0;
-				let y=0;
-				console.log(cfg.pre[i]);
-				if(cfg.pre[i][item.sc]) {
-					x=cfg.pre[i][item.sc].A;
-					y=cfg.pre[i][item.sc].B;
-				}
-				
 
-				gs.push({lv:item.lv,yr:Number(item.yr),sc:item.sc,ss:item.ss,g:item.g,pre:{A:x,B:y}})
+			let gs : {lv:string,yr:number,ss:string,sc:string,g:string,pre:{A:number,B:number}}[]=[];
+			let g = results.filter((el: { pid: any; })=>el.pid===row.pid).map((el: { lv: any; yr: any; ss: any; sc: any; g: any; })=>({lv:el.lv,yr:Number(el.yr),ss:el.ss,sc:el.sc,g:el.g}));
+			if(g) {
+				gs=cfg.getGroups(i,g);	
 			}
-
-			gs=gs.sort((a,b)=>a.yr-b.yr || a.ss.localeCompare(b.ss));
-
+			
 
 
 			pupil.push ({
@@ -153,13 +145,16 @@ let upload=async()=>{
 	file.read(files[0],async(res:any)=>{
 		console.log(res);
 
+		console.log(cfg.base);
+
 		let results:any=file.csvProcess(res);
 		console.log(results);
 
 		getGroup(results);
 		getPupil(results);
 
-		//await insertGroup();
+		await insertGroup();
+		await insertPupil();
 	});
 
 };
