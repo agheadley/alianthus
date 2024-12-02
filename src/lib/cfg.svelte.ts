@@ -3,3 +3,5 @@ export const obj1 = $state({
     y:2,
     z:'Um!'
 });
+
+export const alert = $state({msg:"",type:'',ms:3000});

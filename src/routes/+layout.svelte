@@ -1,11 +1,13 @@
 <script lang="ts">
 	import '../app.css';
+	import Alert from '$lib/_Alert.svelte';
 
 	let { children } = $props();
 </script>
 
 	<div class="app">
 	<!-- simple css adjusted so .container used instead of body - body margin:0 added too to appp.css-->
+	<Alert></Alert>
 	<div class="container">
 	<header>
 		<nav>

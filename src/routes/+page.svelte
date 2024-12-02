@@ -1,5 +1,5 @@
 <script lang="ts">
-import * as util from '$lib/util';
+import {alert} from '$lib/cfg.svelte';
 
 
 </script>
@@ -14,6 +14,7 @@ import * as util from '$lib/util';
 	<h4>Home</h4>
 </section>
 
+<p><button onclick={()=>alert.msg='Hello World!'}>Alert</button></p>
 
 
 <style>

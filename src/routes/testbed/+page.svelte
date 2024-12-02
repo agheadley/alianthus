@@ -157,6 +157,7 @@ let getPupil=async(results:any)=>{
 let upload=async()=>{
     
     let res:any= await file.readFile(files[0]);
+
     let results:object[]=file.csvProcess(res);
     console.log(results);
 
