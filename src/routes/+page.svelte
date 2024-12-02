@@ -1,6 +1,13 @@
 <script lang="ts">
-import {alert} from '$lib/cfg.svelte';
+import * as icon from '$lib/icon';
 
+let download=():void=>{
+
+}
+
+let create=async():Promise<void>=>{
+
+}
 
 </script>
 
@@ -11,11 +18,38 @@ import {alert} from '$lib/cfg.svelte';
 
 
 <section>
-	<h4>Home</h4>
+	<div class="row">
+		<div class="col">
+			Cohort
+		</div>
+		<div class="col">
+			Subject
+		</div>
+		<div class="col">
+			My Sets
+		</div>
+		<div class="col">
+			<a title="CREATE" href={'javascript:void(0)'} onclick={create}>{@html icon.plusCircle()}</a>&nbsp;&nbsp;
+			<a title="DOWNLOAD" href={'javascript:void(0)'} onclick={download}>{@html icon.download()}</a>&nbsp;&nbsp;
+			<a title="ARCHIVE" href={'javascript:void(0)'} onclick={create}>{@html icon.archive()}</a>
+		
+		
+		</div>
+
+
+	</div>
 </section>
 
-<p><button onclick={()=>alert.msg='Hello World!'}>Alert</button></p>
 
 
 <style>
+
+.row {
+	display:flex;
+	justify-content: space-between;
+}
+
+.col {
+	padding:1rem;
+}
 </style>

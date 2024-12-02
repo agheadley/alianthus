@@ -5,3 +5,6 @@ export const obj1 = $state({
 });
 
 export const alert = $state({msg:"",type:'',ms:3000});
+
+export const user = {name:'AA',isAdmin:true,isTeacher:true,isPupil:false};
+

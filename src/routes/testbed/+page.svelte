@@ -3,6 +3,8 @@
 import * as cfg from '$lib/test-cfg';
 import * as util from '$lib/util';
 import * as file from '$lib/file';
+import {alert} from '$lib/cfg.svelte';
+import Modal from '$lib/_Modal.svelte';
 
 let imageUrls=$state({public:'',private:''});
 
@@ -13,6 +15,7 @@ let size = $state(2);
 let color = $state({r:34,g:127,b:34,o:0.1});
 let canvas:any;
 
+let modalOpen:boolean = $state(false);
 
 //let { data } = $props();
 
@@ -276,6 +279,22 @@ $effect(() => {
     </div>
 </article>
 
+<article>
+    <h2>Alert & Modal</h2>
+    <div>
+        <p><button onclick={()=>alert.msg='Hello World!'}>Alert</button></p>
+    </div>
+    <div>
+        <p><button onclick={()=>modalOpen=true}>Modal</button></p>
+    </div>
+    <div>
+        <Modal bind:open={modalOpen} title="Test Modal">
+           <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+           </p>
+        </Modal>
+    </div>
+</article>
 
 <article>
     <h2>Process table data</h2>

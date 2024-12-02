@@ -197,6 +197,9 @@ a:hover {
   text-decoration: none;
 }
 
+
+
+
 button,
 .button,
 a.button, /* extra specificity to override a */
@@ -255,6 +258,8 @@ input:enabled:focus-visible:where(
   outline: 2px solid var(--accent);
   outline-offset: 1px;
 }
+
+
 
 /* Format navigation */
 header > nav {
@@ -716,4 +721,14 @@ sub {
   border-radius: var(--standard-border-radius);
   padding: 1.5rem;
   margin: 2rem 0;
+}
+
+
+.row {
+	display:flex;
+	justify-content: space-between;
+}
+
+.col {
+	padding:1rem;
 }
