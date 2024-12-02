@@ -44,12 +44,5 @@ let create=async():Promise<void>=>{
 
 <style>
 
-.row {
-	display:flex;
-	justify-content: space-between;
-}
 
-.col {
-	padding:1rem;
-}
 </style>
