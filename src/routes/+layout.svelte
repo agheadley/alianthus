@@ -12,6 +12,7 @@
 	<header>
 		<nav>
 			<a href="/">Home</a>
+			<a href="/assessments">Assessments</a>
 			<a href="/testbed">Testbed</a>
 			
 			<a href="/about">About</a>

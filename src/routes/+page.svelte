@@ -1,43 +1,52 @@
 <script lang="ts">
 import * as icon from '$lib/icon';
+import * as util from '$lib/util';
+import {groups,user,isCoreReady,setIsCoreReady} from '$lib/cfg.svelte';
 
-let download=():void=>{
 
-}
+const getCore=async()=>{
+	let response = await fetch('/api/read', {
+		method: 'POST',
+		body: JSON.stringify({table:"group_table"}),
+		headers: {'content-type': 'application/json'}
+	});
+	let res= await response.json();
+	console.log(res);
 
-let create=async():Promise<void>=>{
+	//groups=res;
 
-}
+	let subjects = util.unique(res,['lv','yr','ss','sc']).map(el=>({nc:el.nc,lv:el.lv,yr:el.yr,sc:el.sc,ss:el.ss,sl:el.ss}));
+	console.log(subjects);
+
+	let years=util.unique(subjects,['lv','yr']);
+	console.log(years);
+
+	setIsCoreReady(true);
+	
+};
+
+
+$effect(() => {
+    $inspect(isCoreReady);
+	if(!isCoreReady) getCore();
+	
+    
+});
 
 </script>
 
 <svelte:head>
 	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<meta name="description" content="ailanthus" />
 </svelte:head>
 
 
 <section>
-	<div class="row">
-		<div class="col">
-			Cohort
-		</div>
-		<div class="col">
-			Subject
-		</div>
-		<div class="col">
-			My Sets
-		</div>
-		<div class="col">
-			<a title="CREATE" href={'javascript:void(0)'} onclick={create}>{@html icon.plusCircle()}</a>&nbsp;&nbsp;
-			<a title="DOWNLOAD" href={'javascript:void(0)'} onclick={download}>{@html icon.download()}</a>&nbsp;&nbsp;
-			<a title="ARCHIVE" href={'javascript:void(0)'} onclick={create}>{@html icon.archive()}</a>
-		
-		
-		</div>
 
+	<blockquote>
+		Harvesting core data and obtaining user status ...
+	</blockquote>
 
-	</div>
 </section>
 
 

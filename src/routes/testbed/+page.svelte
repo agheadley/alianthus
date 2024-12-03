@@ -225,8 +225,8 @@ $effect(() => {
 </script>
 
 <svelte:head>
-	<title>Testbed</title>
-	<meta name="description" content="Svelte demo app" />
+    <title>Testbed</title>
+    <meta name="description" content="ailanthus" />
 </svelte:head>
 
 
