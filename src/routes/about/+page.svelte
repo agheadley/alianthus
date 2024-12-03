@@ -11,9 +11,23 @@ let test =async()=>{
 		let res= await response.json();
 		console.log(res);
 
-		let unique = util.unique(res,['lv','yr','sc','ss']);
+		let unique = util.unique(res,['lv','yr']);
 		console.log(unique);
-	
+
+		//{ [key: string]: string } 
+		let a : { [key: string]: any }[]= [
+			{x:1,y:"b",z:"c",q:false},
+			{x:2,y:"b",z:"c",q:false},
+			{x:1,y:"b",z:"c",q:true},
+			{x:3,y:"b",z:"c",q:false},
+			{x:4,y:"b",z:"c",q:false},
+			{x:1,y:"x",z:"c",q:false},
+			
+		]
+		
+		let b = ['x','z'];
+		let c = b.map(el=>a[0][el]);
+
 };
 
 </script>
